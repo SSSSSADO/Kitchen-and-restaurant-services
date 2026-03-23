@@ -20,6 +20,16 @@ urlpatterns = [
         views.DishDetailView.as_view(),
         name="dish-detail"
     ),
+    path(
+        "dishes/create/",
+        views.DishCreateView.as_view(),
+        name="dish-create"
+    ),
+    path(
+        "dishes/<int:pk>/update/",
+        views.DishUpdateView.as_view(),
+        name="dish-update"
+    ),
     # Dish-Type paths
     path(
         "dish-types/",

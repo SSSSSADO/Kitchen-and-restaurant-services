@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.models import Cook, DishType, Dish
@@ -18,26 +19,35 @@ def index(request: HttpRequest) -> HttpResponse:
 class CookListView(generic.ListView):
     model = Cook
     template_name = "kitchen/cook_list.html"
-    context_object_name = "cook_list"
-
 
 class CookDetailView(generic.DetailView):
     model = Cook
     template_name = "kitchen/cook_detail.html"
-    context_object_name = "cook"
 
 
 # Dish Views
 class DishListView(generic.ListView):
     model = Dish
     template_name = "kitchen/dish_list.html"
-    context_object_name = "dish_list"
 
 
 class DishDetailView(generic.DetailView):
     model = Dish
     template_name = "kitchen/dish_detail.html"
-    context_object_name = "dish"
+
+
+class DishCreateView(generic.CreateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-list")
+    template_name = "kitchen/dish_form.html"
+
+
+class DishUpdateView(generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-list")
+    template_name = "kitchen/dish_form.html"
 
 
 # Dish-Type Views

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  <a href="{% url 'kitchen:dish-create' %}">Create</a>
   {% if dish_list %}
     <ul>
       {% for dish in dish_list %}

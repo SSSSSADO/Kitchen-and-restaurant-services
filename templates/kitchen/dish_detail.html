@@ -6,8 +6,12 @@
 
 {% block content %}
   <h1>{{ dish.name }}</h1>
-  <h4>Price: {{ dish.price }}</h4>
+  <h4>
+    Price: {{ dish.price }} Type:
+    <a href="{{ dish.dish_type.get_absolute_url }}">{{ dish.dish_type }}</a>
+  </h4>
   <p>{{ dish.description }}</p>
+  <a href="{% url 'kitchen:dish-update' pk=dish.id %}">Update</a>
   {% if dish.cooks.all %}
     <ul>
       {% for cook in dish.cooks.all %}

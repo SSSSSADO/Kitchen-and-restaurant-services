@@ -1,3 +1,11 @@
+<h1>
+  {% if view.object %}
+    Update
+  {% else %}
+    Create
+  {% endif %}
+</h1>
+
 <form action="" method="POST" novalidate>
   {% csrf_token %}
   {{ form.as_p }}
