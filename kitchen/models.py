@@ -6,6 +6,9 @@ from django.db import models
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(null=True, blank=True)
 
+    class Meta:
+        verbose_name = "cook"
+
     def get_absolute_url(self):
         return reverse("kitchen:cook-detail", kwargs={"pk": self.pk})
 
@@ -15,6 +18,9 @@ class Cook(AbstractUser):
 
 class DishType(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = "dish"
 
     def get_absolute_url(self):
         return reverse("kitchen:dish-type-detail", kwargs={"pk": self.pk})
@@ -36,6 +42,9 @@ class Dish(models.Model):
         Cook,
         related_name="dishes"
     )
+
+    class Meta:
+        verbose_name = "dish type"
 
     def get_absolute_url(self):
         return reverse("kitchen:dish-detail", kwargs={"pk": self.pk})
