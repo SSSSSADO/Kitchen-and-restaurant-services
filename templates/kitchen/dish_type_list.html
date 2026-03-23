@@ -9,7 +9,9 @@
     <ul>
       {% for dish_type in dish_type_list %}
         <li>
-          {{ dish_type.name }}
+          <a href="{{ dish_type.get_absolute_url }}">
+            {{ dish_type.name }}
+          </a>
         </li>
       {% endfor %}
     </ul>

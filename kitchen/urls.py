@@ -26,4 +26,9 @@ urlpatterns = [
         views.DishTypeListView.as_view(),
         name="dish-type-list"
     ),
+    path(
+        "dish-types/<int:pk>/",
+        views.DishTypeDetailView.as_view(),
+        name="dish-type-detail"
+    )
 ]

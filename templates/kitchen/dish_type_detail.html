@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>{{ dish_type.name }}</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Here you can find all dishes with this type:</h1>
+  {% if dish_type.dishes.all %}
+    <ul>
+      {% for dish in dish_type.dishes.all %}
+        <li>
+          <a href="{{ dish.get_absolute_url }}">
+            {{ dish.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>No dishes with this type found</h3>
+  {% endif %}
+{% endblock %}
