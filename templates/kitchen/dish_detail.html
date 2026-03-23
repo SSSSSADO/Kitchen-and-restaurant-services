@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>{{ dish.name }}</title>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ dish.name }}</h1>
+  <h4>Price: {{ dish.price }}</h4>
+  <p>{{ dish.description }}</p>
+  {% if dish.cooks.all %}
+    <ul>
+      {% for cook in dish.cooks.all %}
+        <li>
+          <a href="{{ cook.get_absolute_url }}">
+            {{ cook.username }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>No cooks found</h3>
+  {% endif %}
+{% endblock %}

@@ -9,7 +9,9 @@
     <ul>
       {% for dish in dish_list %}
         <li>
-          {{ dish.name }} Price: {{ dish.price }}
+          <a href="{{ dish.get_absolute_url }}">
+            {{ dish.name }} Price: {{ dish.price }}
+          </a>
         </li>
       {% endfor %}
     </ul>

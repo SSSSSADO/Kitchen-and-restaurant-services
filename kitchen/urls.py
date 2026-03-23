@@ -15,6 +15,11 @@ urlpatterns = [
     ),
     # Dish paths
     path("dishes/", views.DishListView.as_view(), name="dish-list"),
+    path(
+        "dishes/<int:pk>/",
+        views.DishDetailView.as_view(),
+        name="dish-detail"
+    ),
     # Dish-Type paths
     path(
         "dish-types/",

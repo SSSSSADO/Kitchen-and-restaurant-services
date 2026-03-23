@@ -34,5 +34,8 @@ class Dish (models.Model):
         related_name="dishes"
     )
 
+    def get_absolute_url(self):
+        return reverse("kitchen:dish-detail", kwargs={"pk": self.pk})
+
     def __str__(self):
         return self.name

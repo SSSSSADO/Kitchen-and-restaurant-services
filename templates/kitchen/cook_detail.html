@@ -19,7 +19,9 @@
     <ul>
       {% for dish in cook.dishes.all %}
         <li>
-          {{ dish.name }}
+          <a href="{{ dish.get_absolute_url }}">
+            {{ dish.name }}
+          </a>
         </li>
       {% endfor %}
     </ul>
