@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>{{ cook.username }}</title>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ cook.username }}</h1>
+
+  {% if cook.is_staff %}
+    <h2>Admin</h2>
+  {% endif %}
+
+  <p>Full name: {{ cook.first_name }} {{ cook.last_name }}</p>
+  <p>Experience: {{ cook.years_of_experience }} years</p>
+  <p>Email: {{ cook.email }}</p>
+
+  {% if cook.dishes.all %}
+    <ul>
+      {% for dish in cook.dishes.all %}
+        <li>
+          {{ dish.name }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>{{ cook.name }} has no dishes at the moment</h3>
+  {% endif %}
+{% endblock %}

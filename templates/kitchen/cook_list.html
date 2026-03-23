@@ -9,7 +9,9 @@
     <ul>
       {% for cook in cook_list %}
         <li>
-          Name: {{ cook.first_name }} {{ cook.last_name }}, Experience: {{ cook.years_of_experience }}
+          <a href="{{ cook.get_absolute_url }}">
+            {{ cook.first_name }} {{ cook.last_name }}
+          </a>
         </li>
       {% endfor %}
     </ul>
