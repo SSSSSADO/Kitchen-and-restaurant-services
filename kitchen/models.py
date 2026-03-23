@@ -7,7 +7,7 @@ class Cook (AbstractUser):
     years_of_experience = models.IntegerField(null=True, blank=True)
 
     def get_absolute_url(self):
-        return reverse("kitchen:cook_detail", kwargs={"pk": self.pk})
+        return reverse("kitchen:cook-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.username
