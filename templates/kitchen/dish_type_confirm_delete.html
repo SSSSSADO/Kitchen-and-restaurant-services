@@ -13,6 +13,6 @@
     </p>
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
-    <a href="{{ dish.get_absolute_url }}">Cancel</a>
+    <a href="{{ dish_type.get_absolute_url }}">Cancel</a>
   </form>
 {% endblock %}
