@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}
-  <title>{{ object|yesno:"Update,Create" }} Dish</title>
+  <title>{{ object|yesno:"Update,Create" }} Dish Type</title>
 {% endblock %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} {{ dish.name }}</h1>
+  <h1>{{ object|yesno:"Update,Create" }} {{ dish_type.name }}</h1>
   {% include "includes/create_update_form.html" %}
 {% endblock %}

@@ -20,6 +20,7 @@ class CookListView(generic.ListView):
     model = Cook
     template_name = "kitchen/cook_list.html"
 
+
 class CookDetailView(generic.DetailView):
     model = Cook
     template_name = "kitchen/cook_detail.html"
@@ -60,4 +61,20 @@ class DishTypeListView(generic.ListView):
 class DishTypeDetailView(generic.DetailView):
     model = DishType
     template_name = "kitchen/dish_type_detail.html"
+    context_object_name = "dish_type"
+
+
+class DishTypeCreateView(generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-type-list")
+    template_name = "kitchen/dish_type_form.html"
+    context_object_name = "dish_type"
+
+
+class DishTypeUpdateView(generic.UpdateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-type-list")
+    template_name = "kitchen/dish_type_form.html"
     context_object_name = "dish_type"
