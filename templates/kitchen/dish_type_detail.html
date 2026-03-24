@@ -7,6 +7,7 @@
 {% block content %}
   <h1>Here you can find all dishes with this type:</h1>
   <a href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}">Update</a>
+  <a style="color:red" href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}">Delete</a>
   {% if dish_type.dishes.all %}
     <ul>
       {% for dish in dish_type.dishes.all %}

@@ -12,6 +12,7 @@
   </h4>
   <p>{{ dish.description }}</p>
   <a href="{% url 'kitchen:dish-update' pk=dish.id %}">Update</a>
+  <a style="color:red" href="{% url 'kitchen:dish-delete' pk=dish.id %}">Delete</a>
   {% if dish.cooks.all %}
     <ul>
       {% for cook in dish.cooks.all %}
